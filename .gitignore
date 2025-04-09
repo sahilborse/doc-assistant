@@ -1,0 +1,12 @@
+.env/
+env/
+venv/
+.venv/
+venv
+.venv
+main.py
+__pycache__/
+.env
+env
+# FAISS index files
+faiss_index/
