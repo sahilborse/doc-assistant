@@ -44,7 +44,11 @@ This project is an intelligent PDF Assistant that uses **RAG (Retrieval-Augmente
    python3 -m venv venv
    source venv/bin/activate
 
-
 3. **Install Requirements**
    ```bash
    pip install -r requirements.txt
+
+
+4. **Run the Application**
+   ```bash
+   streamlit run app.py
