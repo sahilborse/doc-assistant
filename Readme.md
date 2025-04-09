@@ -29,5 +29,22 @@ This project is an intelligent PDF Assistant that uses **RAG (Retrieval-Augmente
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/pdf-assistant.git
+   git clone https://github.com/sahilborse/doc-assistant.git
    cd pdf-assistant
+
+
+2. **Create Virtual Environment**
+   **🪟 Windows**
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+
+   **🐧 Linux/macOS**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+
+
+3. **Install Requirements**
+   ```bash
+   pip install -r requirements.txt

@@ -23,7 +23,7 @@ def get_pdf_text(pdf_docs):
             text += page.extract_text()
     return text
 
-def get_text_chunks(text):
+def split_chunk(text):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
     return text_splitter.split_text(text)
 
@@ -45,12 +45,12 @@ def get_conversational_chain():
     prompt = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
     return load_qa_chain(model, chain_type="stuff", prompt=prompt)
 
-def user_input(user_question):
+def user_input(question):
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
-    docs = new_db.similarity_search(user_question)
+    docs = new_db.similarity_search(question)
     chain = get_conversational_chain()
-    response = chain({"input_documents": docs, "question": user_question}, return_only_outputs=True)
+    response = chain({"input_documents": docs, "question": question}, return_only_outputs=True)
     if st.session_state["theme"] == "Dark":
         st.markdown(f"""
             <div style='background-color:#1f1f1f; color:white; padding:15px; border-radius:10px; margin-top:10px;'>
@@ -165,7 +165,7 @@ def main():
         if st.button("🚀 Submit & Process"):
             with st.spinner("⏳ Processing..."):
                 raw_text = get_pdf_text(pdf_docs)
-                text_chunks = get_text_chunks(raw_text)
+                text_chunks = split_chunk(raw_text)
                 get_vector_store(text_chunks)
                 st.success("✅ Done")
 
