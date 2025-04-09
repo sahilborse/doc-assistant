@@ -34,6 +34,7 @@ This project is an intelligent PDF Assistant that uses **RAG (Retrieval-Augmente
 
 
 2. **Create Virtual Environment**
+
    **🪟 Windows**
    ```bash
    python -m venv venv
