@@ -38,7 +38,7 @@ This project is an intelligent PDF Assistant that uses **RAG (Retrieval-Augmente
    ```bash
    python -m venv venv
    venv\Scripts\activate
-
+   ```
    **🐧 Linux/macOS**
    ```bash
    python3 -m venv venv
